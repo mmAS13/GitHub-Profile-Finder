@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fab fa-github"></i>
+                GitHub Profile Finder
+            </h1>
+            <p class="subtitle">Discover any GitHub user's profile and repositories</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Enter GitHub username (e.g., octocat)"
+                            autocomplete="off"
+                        >
+                        <button id="searchBtn" class="search-btn">
+                            <i class="fas fa-magnifying-glass"></i>
+                            <span>Search</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <section class="loading-section" id="loadingSection" style="display: none;">
+                <div class="loading-container">
+                    <div class="loading-spinner"></div>
+                    <p>Fetching profile data...</p>
+                </div>
+            </section>
+
+            <!-- Error State -->
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="error-card">
+                    <i class="fas fa-user-slash error-icon"></i>
+                    <h3 id="errorMessage">User not found</h3>
+                    <p>Please check the username and try again.</p>
+                    <button id="tryAgainBtn" class="btn-secondary">
+                        <i class="fas fa-redo"></i>
+                        Try Another
+                    </button>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section class="profile-section" id="profileSection" style="display: none;">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img id="profileAvatar" src="" alt="Profile Avatar" class="profile-avatar">
+                        <div class="profile-info">
+                            <h2 id="profileName" class="profile-name"></h2>
+                            <p id="profileUsername" class="profile-username">@username</p>
+                            <p id="profileBio" class="profile-bio"></p>
+                            <div class="profile-links">
+                                <a id="profileLink" href="#" target="_blank" class="profile-link">
+                                    <i class="fab fa-github"></i>
+                                    View GitHub Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span id="reposCount" class="stat-number">0</span>
+                            <span class="stat-label">Repositories</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="followersCount" class="stat-number">0</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="followingCount" class="stat-number">0</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="profileLocation">-</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Repositories Section -->
+            <section class="repos-section" id="reposSection" style="display: none;">
+                <h3 class="section-title">
+                    <i class="fas fa-code"></i>
+                    Latest Repositories
+                </h3>
+                <div class="repos-grid" id="reposGrid">
+                    <!-- Repositories will be dynamically inserted here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
